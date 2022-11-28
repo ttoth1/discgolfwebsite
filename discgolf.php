@@ -43,34 +43,63 @@
       </div>
     </nav>
 
-    <div class="container-fixed mt-3">
-      <p>Leave a review and rating below!</p>
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>Leave a review and rating below!</h5>
+          <form onsubmit="return(insertRating())">
+            <label for="disc" class="form-label">Select disc (select one):</label>
+            <select class="form-select" id="disc" name="disc">
+              <option>Aviar</option>
+              <option>Buzzz</option>
+              <option>Destroyer</option>
+              <option>Escape</option>
+              <option>Explorer</option>
+              <option>Firebird</option>
+              <option>Judge</option>
+              <option>Leopard</option>
+              <option>Luna</option>
+              <option>Nomad</option>
+              <option>River</option>
+              <option>Teebird</option>
+              <option>Tern</option>
+              <option>Truth</option>
+              <option>Zone</option>
+            </select>
+            <br>
+            <label for="stability" class="form-label">Select Stability:</label>
+            <select class="form-select" id="stability" name="stability">
+              <option>Very Understable</option>
+              <option>Understable</option>
+              <option>Neutral</option>
+              <option>Overstable</option>
+              <option>Very Overstable</option>
+            </select>
+            <br>
+            <label for="rating" class="form-label">Select rating (5 is best):</label>
+            <select class="form-select" id="rating" name="rating">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+            <br>
+            <label for="comment">Comments:</label>
+            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+            
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+          </form>
+        </div>
+        <div class="col-sm-8">
+          <h3>Reviews<h3>
+          <br>
+          <p>
+            <div id=showratings></div>
+          </p>
+        </div>
+      </div>
     </div>
-      <form onsubmit="return(insertRating())">
-      <label for="disc" class="form-label">Select disc (select one):</label>
-      <select class="form-select" id="disc" name="disc">
-        <option>Teebird</option>
-        <option>Firebird</option>
-        <option>Aviar</option>
-        <option>Destroyer</option>
-      </select>
-      <br>
-      <label for="rating" class="form-label">Select rating(5 is best):</label>
-      <select class="form-select" id="rating" name="rating">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-      <br>
-      <label for="comment">Comments:</label>
-      <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
-      
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
-
-    <div id=showratings></div>
 
     <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="./jquery/jquery-3.6.1.min.js"></script>
@@ -78,9 +107,10 @@
       
       function insertRating(){
         disc = $("#disc").val();
+        stability = $("#stability").val();
         rating = $("#rating").val();
         comment = $("#comment").val();
-          $.get("./ratingajax.php", {"cmd": "create", "disc": disc, "rating": rating, "comment": comment}, function(data){
+          $.get("./ratingajax.php", {"cmd": "create", "disc": disc, "stability": stability, "rating": rating, "comment": comment}, function(data){
               $("#showratings").html(data);
           });
           return(false);

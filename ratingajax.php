@@ -11,23 +11,26 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-function InsertRating($disc, $rating, $comment) {
+function InsertRating($disc, $stability, $rating, $comment) {
     global $conn;
 
-    $insert = "INSERT INTO DiscRatings SET disc = '$disc', rating = '$rating', comment = '$comment' ";
+    $insert = "INSERT INTO DiscRatings SET disc = '$disc', stability = '$stability', rating = '$rating', comment = '$comment' ";
     $result = $conn->query($insert);
 }
 
 function ShowRatings() {
     global $conn;
 
-    $sql = "SELECT id, disc, rating, comment FROM DiscRatings";
+    $sql = "SELECT id, disc, stability, rating, comment FROM DiscRatings";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
-            echo "id: " . $row["id"]. " - Disc: " . $row["disc"]. " - Rating: " . $row["rating"]. " - Comment: " . $row["comment"]. " <br>";
+            // $currentDisc = $row["disc"];
+            // echo "id: " . $row["id"]. " - Disc: " . $row["disc"]. " - Rating: " . $row["rating"]. " - Comment: " . $row["comment"]. " <br>";
+            // echo " Disc: is $currentDisc";
+            echo $row["disc"], " - Stability: ", $row["stability"], " - Rating: ", $row["rating"], " - Comment: ", $row["comment"], "<br><br>";
         }
     } else {
         echo "0 results";
@@ -37,7 +40,7 @@ function ShowRatings() {
 $cmd = $_GET['cmd'];
 
 if($cmd == 'create') {
-    InsertRating($_GET['disc'],$_GET['rating'],$_GET['comment']);
+    InsertRating($_GET['disc'],$_GET['stability'],$_GET['rating'],$_GET['comment']);
 }
 
 ShowRatings();
