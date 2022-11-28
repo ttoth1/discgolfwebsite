@@ -51,8 +51,35 @@ function CheckUser() {
   }
 ?>
 
-<form method="post">
-  Username: <input type="text" name="u_name"><br>
-  Password: <input type="text" name="p_word"><br>
-  <input type="submit" value="Submit">
-</form>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Disc Golf</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
+  </head>
+
+  <body>
+
+    <div class="container mt-3">
+      <h2>Log in</h2>
+      <form method="post">
+        <div class="mb-3 mt-3">
+          <label for="u_name">Username:</label>
+          <input type="text" class="form-control" id="u_name" placeholder="Enter username" name="u_name">
+        </div>
+        <div class="mb-3">
+          <label for="p_word">Password:</label>
+          <input type="text" class="form-control" id="p_word" placeholder="Enter password" name="p_word">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./jquery/jquery-3.6.1.min.js"></script>
+
+    </body>
+</html>

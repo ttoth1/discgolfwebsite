@@ -1,50 +1,44 @@
-<?PHP
-if(!isset($_COOKIE['userID'])) {
-  header("Refresh:5;url=discgolflogin.php");
-  echo "You must log in to view the checklist page. Redirecting to login page in 5 seconds unless you click <a href=./discgolf.php> here.</a>";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Checklist</title>
+    <title>Site description</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./bootstrap-5.2.3-dist/css/bootstrap.min.css">
   </head>
 
   <body>
+
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <div class="container-fluid">
+    <div class="container-fluid">
         <a class="navbar-brand active" href="./discgolf.php">Disc Golf Ratings</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-          <span>☰</span>
+        <span>☰</span>
         </button>
         <div class="collapse navbar-collapse" id="mynavbar">
-          <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <a class="nav-link" href="./discgolf.php">Home</a>
+            <a class="nav-link" href="./discgolf.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="./checklist.php">Checklist</a>
+            <a class="nav-link" href="./checklist.php">Checklist</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./site-description.php">Site description</a>
+            <a class="nav-link active" href="./site-description.php">Site description</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./about-us.php">About us</a>
+            <a class="nav-link" href="./about-us.php">About us</a>
             </li>
-          </ul>
-          <form class="d-flex">
+        </ul>
+        <form class="d-flex">
             <a href="./discgolflogin.php" class="btn btn-primary" type="button">Log out</a>
-          </form>
+        </form>
         </div>
-      </div>
+    </div>
     </nav>
 
     <div class="container-fluid mt-3">
-      <h3>Checklist test</h3>
+      <h3>Site description</h3>
       <p>Temp text</p>
     </div>
     <script src="./bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
